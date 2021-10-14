@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const mascotaSchema = new Schema({
-    nombre: {type: String, required: [true,'Nombre de mascota obligatorio']},
-    especie: String,
-    raza: String,
+    nombre: {type: String, required: [true,'Nombre obligatorio']},
+    identificacion: Number,
+    email: String,
     date: {type: Date, default: Date.now},
     activo: {type: Boolean, default: true}
 })

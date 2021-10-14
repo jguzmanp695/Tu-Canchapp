@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
 
+//Inicialización del servidor
 const app = express();
 
 // // const indexRoutes = require('../routes/primerBd');
@@ -14,14 +15,14 @@ const app = express();
 //Conexión a BD
 const mongoose = require('mongoose');
 // const url = 'mongodb://localhost:27017/primerBd'
-mongoose.connect('mongodb+srv://root:toor@tucanchappdb.ifsjs.mongodb.net/TuCanchappDB?retryWrites=true&w=majority')
+const url = 'mongodb+srv://root:toor@tucanchappdb.ifsjs.mongodb.net/primerBd?retryWrites=true&w=majority';
 const options = {useNewUrlParser: true, useUnifiedTopology: true};
 
 mongoose.connect(url,options).then(
     () => {
         console.log('Conectado a mongo')
     },
-    err => { err }
+    err => { console.log(err) }
 );
 
 //Middleware
@@ -31,9 +32,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
 // Rutas
-// app.get('/', function(req,res){
-//     res.send("Hola mundo")
-// });
+app.get('/', function(req,res){
+    res.send("Hola mundo");
+});
 app.use('/api',require('./routes/primerBd'));
 
 //Middleware para Vue.js router modo history

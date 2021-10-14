@@ -55,7 +55,9 @@
                     <a href="#" data-filter=".web">Sedes</a>
                     <a href="#" data-filter=".design">Apuesta</a>
                     <a href="#" data-filter=".branding">Contacto</a>
-                    <a href="#" data-filter=".photography">Regístrate</a>
+                        <div :id="registrate">
+                        <a :href="'/registrate/'+registrate">Regístrate</a>
+                        </div>
                     </div>
                 </div>
                 </div>
